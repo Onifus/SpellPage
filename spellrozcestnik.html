@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kniha Kouzel</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      padding: 2rem;
+    }
+    h1 {
+      color: #7ec8e3;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .category-box {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .category-box:hover {
+      transform: scale(1.05);
+    }
+    .category-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .category-box h2 {
+      color: #ffd700;
+      padding: 1rem 0;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+	.spellbook-gallery {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	  max-width: 1000px;
+	  margin: 0 auto;
+	  gap: 20px;
+	  padding: 20px;
+	}
+
+
+	.spellbook-gallery img {
+	  width: 100%;
+	  max-width: 300px; /* uprav podle potřeby */
+	  height: auto;
+	  object-fit: cover;
+	  border: 2px solid #333;
+	  border-radius: 8px;
+	}
+
+  </style>
+</head>
+<body>
+  <h1>Kniha Kouzel</h1>
+
+<div class="spellbook-gallery">
+    <a href="Abilities/nekromancie.html">
+      <div class="category-box">
+        <img src="IMG/nekro.webp" alt="Nekromancie">
+        <h2>Nekromancie</h2>
+      </div>
+    </a>
+    <a href="Abilities/darkmagic.html">
+      <div class="category-box">
+        <img src="IMG/temno.webp" alt="Temná Magie">
+        <h2>Temná magie</h2>
+      </div>
+    </a>
+	<a href="Abilities/gravitacnimagie.html">
+      <div class="category-box">
+        <img src="IMG/gravity.webp" alt="Utility">
+        <h2>Gravitační magie</h2>
+      </div>
+    </a>
+    <a href="Abilities/bleskovamagie.html">
+      <div class="category-box">
+        <img src="IMG/lighting.webp" alt="Utility">
+        <h2>Blesková magie</h2>
+      </div>
+    </a>
+    
+  </div>
+
+
+</body>
+</html>
