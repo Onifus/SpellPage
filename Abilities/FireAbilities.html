@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spell Viewer</title>
+  <link rel="stylesheet" href="abilities.css">
+</head>
+<body>
+
+	<div class="container">
+		<h1>Temné magie</h1>
+	  <div class="spell-list">
+		<div class="spell" onclick="openSpell('gravitonSnare')">
+		  <img src="https://1drv.ms/i/s!AiDJb8eEyOb6irF0NL-wt7dO25heUA?embed=1&width=1024&height=1024" alt="Fireball">
+		  <h3>Veil of Illusions</h3>
+		  <p>Stinové manipulace</p>
+		</div>
+		
+	  </div>
+	  
+	</div>
+
+
+
+  <div id="spellModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="spellIcon" src="" alt="Spell Icon">
+      <h3 id="spellTitle">Spell Name</h3>
+      <h4 id="spellLevel">Level 1</h4>
+      <p id="spellDescription">Popis spellu...</p>
+      <div class="nav-buttons">
+        <button onclick="prevLevel()">&#x25C0; Předchozí</button>
+        <button onclick="nextLevel()">Další &#x25B6;</button>
+      </div>
+    </div>
+  </div>
+
+<script type="module">
+  import { spells } from './spells/index.js';
+
+  let currentSpell = null;
+  let currentLevel = 0;
+
+  window.openSpell = function(id) {
+    currentSpell = spells[id];
+    currentLevel = 0;
+    updateModal();
+    document.getElementById("spellModal").style.display = "block";
+  };
+
+  window.closeModal = function() {
+    document.getElementById("spellModal").style.display = "none";
+  };
+
+  window.prevLevel = function() {
+    if (currentLevel > 0) {
+      currentLevel--;
+      updateModal();
+    }
+  };
+
+  window.nextLevel = function() {
+    if (currentLevel < currentSpell.levels.length - 1) {
+      currentLevel++;
+      updateModal();
+    }
+  };
+
+  function updateModal() {
+    const levelData = currentSpell.levels[currentLevel];
+    document.getElementById("spellIcon").src = currentSpell.iconLevels[currentLevel];
+    document.getElementById("spellLevel").textContent = "Level " + levelData.level;
+    document.getElementById("spellTitle").textContent = levelData.name;
+    document.getElementById("spellDescription").textContent = levelData.description;
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("spellModal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+</script>
+
+   
+</body>
+</html>

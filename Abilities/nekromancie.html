@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nekromancie</title>
+  <link rel="stylesheet" href="abilities.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Nekromancie</h1>
+  <div class="spell-list" id="spellList"></div>
+</div>
+
+<div id="spellModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="spellIcon" src="" alt="Spell Icon">
+    <h3 id="spellTitle">Spell Name</h3>
+    <h4 id="spellLevel">Level 1</h4>
+    <div id="spellDescription"></div>
+    <div class="nav-buttons">
+      <button onclick="prevLevel()">&#x25C0; Předchozí</button>
+      <button onclick="nextLevel()">Další &#x25B6;</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pořadí skriptů je důležité -->
+<script src="tooltips.js"></script>
+<script src="nekromancie.js"></script> <!-- ← nebo jiný soubor s kouzly -->
+<script src="universal-spells.js"></script> <!-- ← univerzální zpracování -->
+
+</body>
+</html>
